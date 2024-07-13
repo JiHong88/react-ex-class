@@ -11,7 +11,6 @@ class Router extends Component {
 	constructor(props) {
 		super(props);
 
-		this.prevPath = '';
 		// Set default layout
 		this.routes = routes.map((route) => {
 			route.layout = route.layout || DefaultLayout;

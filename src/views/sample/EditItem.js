@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Form, Button } from 'react-bootstrap';
 
-class Edit extends Component {
+class EditItem extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -23,13 +24,13 @@ class Edit extends Component {
 
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<Form onSubmit={this.handleSubmit}>
 				<h2>Create Item</h2>
 				<input type='text' value={this.state.name} onChange={this.handleChange} placeholder='Enter item name' />
-				<button type='submit'>Add Item</button>
-			</form>
+				<Button type='submit'>Add Item</Button>
+			</Form>
 		);
 	}
 }
 
-export default Edit;
+export default EditItem;

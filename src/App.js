@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import Router from './Router';
 import './App.css';
@@ -12,7 +13,6 @@ class App extends Component {
 					<ToastTemplate></ToastTemplate>
 				</div>
 				{/* router */}
-
 				<Router />
 			</React.Fragment>
 		);

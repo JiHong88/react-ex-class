@@ -13,7 +13,22 @@ export const routes = [
 	// sample
 	{
 		path: '/sample/edit',
-		component: lazy(() => import('./views/sample/Edit')),
+		component: lazy(() => import('./views/sample/EditItem')),
+		layout: LayoutMain
+	},
+	{
+		path: '/sample/list',
+		component: lazy(() => import('./views/sample/ItemList')),
+		layout: LayoutMain
+	},
+	{
+		path: '/sample/update',
+		component: lazy(() => import('./views/sample/UpdateItem')),
+		layout: LayoutMain
+	},
+	{
+		path: '/sample/delete',
+		component: lazy(() => import('./views/sample/DeleteItem')),
 		layout: LayoutMain
 	}
 ];
