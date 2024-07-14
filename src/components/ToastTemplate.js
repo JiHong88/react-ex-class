@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Toast } from 'react-bootstrap';
 import './ToastTemplate.css';
@@ -10,13 +10,12 @@ class ToastTemplate extends Component {
 		super(props);
 		this.state = {
 			show: false,
-			showID: null
 		};
 	}
 
-	toggleShow() {
+	close() {
 		this.setState({
-			show: !this.state.show
+			show: false,
 		});
 	}
 
@@ -33,7 +32,7 @@ class ToastTemplate extends Component {
 		}
 	}
 
-	componentDidUpdate(nextProps) {
+	componentWillReceiveProps(nextProps) {
 		const { toasts } = nextProps;
 		if (!toasts) return false;
 
@@ -41,14 +40,14 @@ class ToastTemplate extends Component {
 		if (this.props.toasts?.show && show) {
 			clearTimeout(this.state.showID);
 			this.setState({
-				show: false
+				show: false,
 			});
 			this.setState({
 				showID: +setTimeout(() => {
 					this.setState({
-						show: true
+						show: true,
 					});
-				}, 150)
+				}, 150),
 			});
 		} else {
 			this.setState({ show });
@@ -58,16 +57,16 @@ class ToastTemplate extends Component {
 			this.setState({
 				showID: +setTimeout(() => {
 					this.setState({
-						show: false
+						show: false,
 					});
-				}, time || 1500)
+				}, time || 1500),
 			});
 		}
 	}
 
 	render() {
 		return (
-			<Toast className={`toast-template toast-type-${this.props.toasts?.type}`} show={this.state.show} onClose={this.toggleShow.bind(this)}>
+			<Toast className={`toast-template toast-type-${this.props.toasts?.type}`} show={this.state.show} onClose={this.close.bind(this)}>
 				<Toast.Header>
 					{this.getIcon()}
 					<strong className={'mr-auto'}>{this.props.toasts?.header}</strong>
@@ -80,7 +79,7 @@ class ToastTemplate extends Component {
 
 export default connect(
 	(state) => ({
-		toasts: state.toast.toasts
+		toasts: state.toast.toasts,
 	}),
-	null
+	null,
 )(ToastTemplate);

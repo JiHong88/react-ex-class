@@ -20,15 +20,5 @@ export const routes = [
 		path: '/sample/list',
 		component: lazy(() => import('./views/sample/ItemList')),
 		layout: LayoutMain
-	},
-	{
-		path: '/sample/update',
-		component: lazy(() => import('./views/sample/UpdateItem')),
-		layout: LayoutMain
-	},
-	{
-		path: '/sample/delete',
-		component: lazy(() => import('./views/sample/DeleteItem')),
-		layout: LayoutMain
 	}
 ];

@@ -9,7 +9,7 @@ class EditorFileManager extends Component {
 			list: [],
 			selectedList: [],
 			size: '0KB',
-			title: this.props.type === 'image' ? '이미지 추가' : '파일 추가'
+			title: this.props.type === 'image' ? '이미지 추가' : '파일 추가',
 		};
 	}
 
@@ -54,7 +54,7 @@ class EditorFileManager extends Component {
 
 		// @ts-ignore
 		this.setState({
-			size: size.toFixed(1) + 'KB'
+			size: size.toFixed(1) + 'KB',
 		});
 	}
 
@@ -75,7 +75,7 @@ class EditorFileManager extends Component {
 		}
 
 		this.setState({
-			selectedList: selectedList
+			selectedList: selectedList,
 		});
 	}
 
@@ -90,7 +90,7 @@ class EditorFileManager extends Component {
 		}
 
 		this.setState({
-			selectedList: []
+			selectedList: [],
 		});
 	}
 
@@ -123,7 +123,7 @@ class EditorFileManager extends Component {
 										<div>
 											<div className={this.props.type === 'image' ? 'image-wrapper' : 'file-wrapper'}>
 												{this.props.type === 'image' ? (
-													<img src={v.src} alt="" />
+													<img src={v.src} alt='' />
 												) : (
 													<span>
 														<Icon path={mdiFolderOutline} className='gray' size={0.6} />
@@ -132,9 +132,9 @@ class EditorFileManager extends Component {
 												)}
 											</div>
 										</div>
-										<a onClick={(evt) => this.selectFile(evt, 'select', v.index)} className='image-size' style={{ cursor: 'pointer' }}>
+										<button onClick={(evt) => this.selectFile(evt, 'select', v.index)} className='image-size' style={{ cursor: 'pointer', textDecoration: 'underline', background: 'none', border: 'none', color: 'blue' }}>
 											{(v.size / 1000).toFixed(1)}KB
-										</a>
+										</button>
 										<div className='image-check'>
 											<svg aria-hidden='true' role='img' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512' data-fa-i2svg=''>
 												<path

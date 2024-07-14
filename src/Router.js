@@ -48,7 +48,6 @@ class Router extends Component {
 
 	async componentDidUpdate() {
 		if (pathname !== window.location.pathname) {
-			console.log(`router change : "${window.location.pathname}"`);
 			await this.onChangeRoute(window.location.pathname);
 		}
 	}
