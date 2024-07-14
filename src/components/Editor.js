@@ -24,6 +24,10 @@ class Editor extends Component {
 	}
 
 	componentDidMount() {
+		/**
+		 * 이미지 업로드 백엔드 response 형식
+		 * { errorMessage: "", result: [ {url: '', name: '', size: 0 }, ] }
+		 */
 		this.editor = suneditor.create(this.txtArea.current, {
 			plugins: plugins,
 			excludedPlugins: ['exportPdf', 'layout', 'template', 'mention', 'list', 'math', 'layout', 'video', 'audio', 'fileUpload', 'imageGallery'],
