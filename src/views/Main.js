@@ -20,6 +20,9 @@ class Main extends Component {
 				<Button variant='primary' onClick={() => this.moveTo('/sample/list')}>
 					List
 				</Button>
+				<Button variant='primary' onClick={() => this.moveTo('/sample/view')}>
+					View
+				</Button>
 			</>
 		);
 	}
