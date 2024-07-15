@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import Icon from '@mdi/react';
-import { mdiFolderOutline } from '@mdi/js';
+import { FolderOpen } from '@mui/icons-material';
 
 class EditorFileManager extends Component {
 	constructor(props) {
@@ -126,7 +125,7 @@ class EditorFileManager extends Component {
 													<img src={v.src} alt='' />
 												) : (
 													<span>
-														<Icon path={mdiFolderOutline} className='gray' size={0.6} />
+														<FolderOpen className='gray' />
 														{v.name}
 													</span>
 												)}

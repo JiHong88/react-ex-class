@@ -6,8 +6,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
-## MDI
-https://pictogrammers.com/library/mdi/
+## MUI-icons
+https://mui.com/material-ui/material-icons/
 
 ## React-bootstrap
 https://react-bootstrap.netlify.app/

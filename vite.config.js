@@ -35,4 +35,7 @@ export default defineConfig({
 			},
 		},
 	},
+	optimizeDeps: {
+		include: ['react', 'react-dom', 'react-router-dom', 'react-redux', 'redux', 'axios', '@mui/material', '@mui/icons-material', 'bootstrap', 'sweetalert2'],
+	},
 });

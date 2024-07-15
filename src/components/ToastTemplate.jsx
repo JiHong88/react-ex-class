@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Toast } from 'react-bootstrap';
 import './ToastTemplate.css';
-import Icon from '@mdi/react';
-import { mdiCheckCircleOutline, mdiAlertCircleOutline, mdiCloseCircleOutline } from '@mdi/js';
+import { CheckCircleOutline, ErrorOutline, Close } from '@mui/icons-material';
 
 class ToastTemplate extends Component {
 	constructor(props) {
@@ -22,11 +21,11 @@ class ToastTemplate extends Component {
 	getIcon() {
 		switch (this.props.toasts?.type) {
 			case 'success':
-				return <Icon path={mdiCheckCircleOutline} size={0.7} className={'success mr-1'} />;
+				return <CheckCircleOutline className={'success mr-1'} />;
 			case 'warning':
-				return <Icon path={mdiAlertCircleOutline} size={0.7} className={'warning mr-1'} />;
+				return <ErrorOutline className={'warning mr-1'} />;
 			case 'danger':
-				return <Icon path={mdiCloseCircleOutline} size={0.7} className={'danger mr-1'} />;
+				return <Close className={'danger mr-1'} />;
 			default:
 				return null;
 		}
