@@ -3,14 +3,14 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <link rel="icon" href="/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta
     name="description"
     content="Web site created using create-react-app"
   />
-  <link rel="stylesheet" href="%PUBLIC_URL%/css/app.css" />
+  <link rel="stylesheet" href="/css/app.css" />
 
   <!-- Splash screen -->
   <style>
@@ -117,7 +117,7 @@
   <div class="app-splash-screen">
       <div class="app-splash-screen-content">
         <div class="ui-w-60">
-          <img class="d-block" src="%PUBLIC_URL%/img/logo.jpg">
+          <img class="d-block" src="/img/logo.jpg" alt="Logo">
         </div>
       </div>
     </div>
@@ -126,13 +126,14 @@
   <div class="app-progress">
     <div class="app-progress-screen-content">
       <div class="app-progress-inner">
-        <img class="d-block" id="_loading_logo" src="">
+        <img class="d-block" id="_loading_logo" src="" alt="Loading Logo">
       </div>
     </div>
   </div>
 
   <!-- root -->
   <div id="root"></div>
+  <script type="module" src="/src/index.jsx"></script>
 </body>
 
 </html>

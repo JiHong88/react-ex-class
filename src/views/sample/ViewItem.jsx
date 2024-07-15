@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import SweetAlert from '../../components/SweetAlert';
-import { setToast } from '../../reducers/actions/toast';
-import apiInst from '../../apis';
+import SweetAlert from '@/components/SweetAlert';
+import { setToast } from '@/reducers/actions/toast';
+import apiInst from '@/apis';
 
 class ViewItem extends Component {
 	urlParams = new URLSearchParams(window.location.search);
@@ -43,6 +43,15 @@ class ViewItem extends Component {
 		// 			confirmButtonText: '확인'
 		// 		});
 		// 	});
+	}
+
+	save() {
+		this.props.dispatchToast({
+			show: true,
+			header: '저장',
+			body: '저장 완료',
+			type: 'success',
+		});
 	}
 
 	render() {

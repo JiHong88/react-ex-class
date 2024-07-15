@@ -1,9 +1,9 @@
 import React, { Component, createRef } from 'react';
 import { connect } from 'react-redux';
-import Editor from '../../components/Editor';
-import SweetAlert from '../../components/SweetAlert';
-import { setToast } from '../../reducers/actions/toast';
-import apiInst from '../../apis';
+import Editor from '@/components/Editor';
+import SweetAlert from '@/components/SweetAlert';
+import { setToast } from '@/reducers/actions/toast';
+import apiInst from '@/apis';
 
 class EditItem extends Component {
 	urlParams = new URLSearchParams(window.location.search);

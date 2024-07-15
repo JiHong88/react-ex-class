@@ -19,7 +19,7 @@ class Router extends Component {
 		});
 
 		this.state = {
-			loading: true
+			loading: true,
 		};
 
 		// Set app loading class
@@ -94,8 +94,9 @@ class Router extends Component {
 	}
 
 	render() {
+		const basename = import.meta.env.VITE_REACT_APP_BASENAME || '/';
 		return (
-			<BrowserRouter basename={process.env.REACT_APP_BASENAME}>
+			<BrowserRouter basename={basename}>
 				<NavigateProvider>
 					<Suspense fallback={<div>{/** HTML 로딩 - splashScreen 로 대체 */}</div>}>
 						<Routes>
