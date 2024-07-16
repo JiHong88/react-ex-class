@@ -240,3 +240,8 @@
 .component-list .component-file-list ul li a {
 	color: #333;
 }
+
+/* 임시 수정 */
+.sun-editor .se-selector-table {
+	overflow: hidden;
+}
