@@ -3,8 +3,11 @@ import { connect } from 'react-redux';
 import { Toast } from 'react-bootstrap';
 import './ToastTemplate.css';
 import { CheckCircleOutline, ErrorOutline, Close } from '@mui/icons-material';
+import { setToast } from '@/reducers/actions/toast';
 
 class ToastTemplate extends Component {
+	timer = null;
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -13,9 +16,7 @@ class ToastTemplate extends Component {
 	}
 
 	close() {
-		this.setState({
-			show: false,
-		});
+		this.props.dispatchToast({ show: false });
 	}
 
 	getIcon() {
@@ -31,46 +32,34 @@ class ToastTemplate extends Component {
 		}
 	}
 
-	componentWillReceiveProps(nextProps) {
-		const { toasts } = nextProps;
-		if (!toasts) return false;
+	static getDerivedStateFromProps(props, state) {
+		const { show } = props.toasts;
+		if (show === state.show) return null;
+		return { show };
+	}
 
-		const { show, time } = toasts;
-		if (this.props.toasts?.show && show) {
-			clearTimeout(this.state.showID);
-			this.setState({
-				show: false,
-			});
-			this.setState({
-				showID: +setTimeout(() => {
-					this.setState({
-						show: true,
-					});
-				}, 150),
-			});
-		} else {
-			this.setState({ show });
-		}
-
-		if (show && time !== false) {
-			this.setState({
-				showID: +setTimeout(() => {
-					this.setState({
-						show: false,
-					});
-				}, time || 1500),
-			});
+	componentDidUpdate(_prevProps, prevState) {
+		if (prevState.show === this.state.show) return;
+	
+		this.setState({ show: this.state.show });
+	
+		if (this.timer) this.timer = clearTimeout(this.timer);
+		if (this.state.show) {
+			this.timer = setTimeout(() = > {
+				this.timer = null;
+				this.close();
+			}, 1500);
 		}
 	}
 
 	render() {
 		return (
-			<Toast className={`toast-template toast-type-${this.props.toasts?.type}`} show={this.state.show} onClose={this.close.bind(this)}>
+			<Toast className={`toast-template toast-type-${this.props.toasts.type}`} show={this.state.show} onClose={this.close.bind(this)}>
 				<Toast.Header>
 					{this.getIcon()}
-					<strong className={'mr-auto'}>{this.props.toasts?.header}</strong>
+					<strong className={'mr-auto'}>{this.props.toasts.header}</strong>
 				</Toast.Header>
-				<Toast.Body>{this.props.toasts?.body}</Toast.Body>
+				<Toast.Body>{this.props.toasts.body}</Toast.Body>
 			</Toast>
 		);
 	}
@@ -80,5 +69,7 @@ export default connect(
 	(state) => ({
 		toasts: state.toast.toasts,
 	}),
-	null,
+	((dispatch) = ({
+		dispatchToast: (amount) => dispatch(setToast(amount)),
+	})),
 )(ToastTemplate);
