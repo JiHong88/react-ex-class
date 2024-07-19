@@ -40,12 +40,12 @@ class ToastTemplate extends Component {
 
 	componentDidUpdate(_prevProps, prevState) {
 		if (prevState.show === this.state.show) return;
-	
+
 		this.setState({ show: this.state.show });
-	
+
 		if (this.timer) this.timer = clearTimeout(this.timer);
 		if (this.state.show) {
-			this.timer = setTimeout(() = > {
+			this.timer = setTimeout(() => {
 				this.timer = null;
 				this.close();
 			}, 1500);
@@ -69,7 +69,7 @@ export default connect(
 	(state) => ({
 		toasts: state.toast.toasts,
 	}),
-	((dispatch) = ({
+	(dispatch) => ({
 		dispatchToast: (amount) => dispatch(setToast(amount)),
-	})),
+	}),
 )(ToastTemplate);
